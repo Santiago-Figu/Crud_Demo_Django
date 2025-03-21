@@ -7,11 +7,11 @@ from django.conf import settings
 cipher = AESCipher(settings.FERNET_KEY)
 
 class Usuario(models.Model):
-    nombre = models.CharField(max_length=255)
+    nombre = models.CharField(max_length=255,null=False)
     apellidos = models.CharField(max_length=255)
-    password = models.TextField(default=None)
-    correo = models.TextField(max_length=255)
-    telefono = models.TextField()
+    password = models.TextField(max_length=255,null=False)
+    correo = models.TextField(max_length=255,null=False)
+    telefono = models.TextField(blank=True, null=True)
 
     def set_password(self, password):
         self.correo = cipher.encrypt(password)

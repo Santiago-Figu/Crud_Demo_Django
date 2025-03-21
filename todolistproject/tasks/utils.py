@@ -1,4 +1,5 @@
 import os
+import re
 from Crypto.Cipher import AES
 from Crypto.Util.Padding import pad, unpad
 from Crypto.Random import get_random_bytes
@@ -61,6 +62,15 @@ class AESCipher:
 
         correo_descifrado = cipher.decrypt(correo_cifrado)
         print("Correo descifrado:", correo_descifrado)
+
+
+def limpiar_caracteres_input(cadena):
+    """Elimina caracteres que no sean alfanumericos"""
+    return re.sub(r'[^a-zA-ZáéíóúÁÉÍÓÚñÑ\s]', '', cadena).strip()
+
+def limpiar_input_numerico(cadena):
+    """Elimina caracteres que no sean numericos"""
+    return re.sub(r'[^0-9]', '', cadena).strip()
 
 if __name__ == "__main__":
     AESCipher.test_cifrado()
