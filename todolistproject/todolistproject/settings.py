@@ -81,12 +81,12 @@ WSGI_APPLICATION = 'todolistproject.wsgi.application'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
 DATABASES = {
-    'd': {
+    'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',  # Base de datos SQLite por defecto
     },
     #docker_db
-    'default': {
+    'docker_db': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': config('DB_NAME'),
         'USER': config('DB_USER'),
