@@ -14,6 +14,8 @@ from pathlib import Path
 
 from decouple import config
 
+FERNET_KEY = config('FERNET_KEY')
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -91,7 +93,7 @@ DATABASES = {
         'HOST': config('DB_HOST'),
         'PORT': config('DB_PORT'),
          'OPTIONS': {
-            'options': f'-c search_path={config("SCHEMA")}',  # Especifica el esquema
+            'options': f'-c search_path={config("SCHEMA")}',
         },
     }
 }
