@@ -1,6 +1,7 @@
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
-from .views import TaskViewSet, UsuarioViewSet
+from tasks.vistas.task import TaskViewSet
+from tasks.vistas.usuario import UsuarioViewSet 
 
 router = DefaultRouter()
 #Agregado de rutas 
